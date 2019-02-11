@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/editBand" android:title="Edytuj dane"/>
+    <item android:id="@+id/detailsBand" android:title="Szczegóły"/>
+    <item android:id="@+id/deleteBand" android:title="Usuń"/>
+
+</menu>
