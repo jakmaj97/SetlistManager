@@ -60,8 +60,8 @@ public class MainActivity extends AppCompatActivity implements AddBandDialog.Add
         bandsIdsList.clear();
 
         while (cursor.moveToNext()) {
-            bandsList.add(cursor.getString(1));
-            bandsIdsList.add(Integer.valueOf(cursor.getString(0)));
+            bandsList.add(cursor.getString(BAND_NAME_COLUMN_INDEX));
+            bandsIdsList.add(Integer.valueOf(cursor.getString(BAND_ID_COLUMN_INDEX)));
         }
 
         ListAdapter listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, bandsList);
@@ -179,8 +179,8 @@ public class MainActivity extends AppCompatActivity implements AddBandDialog.Add
     public void openBandDetailsDataDialog(int position) {
 
         Cursor cursor = myDb.getAllData();
-        cursor.move(position+1);
-        String bandName = cursor.getString(1);
+        cursor.move(position+BAND_NAME_COLUMN_INDEX);
+        String bandName = cursor.getString(BAND_NAME_COLUMN_INDEX);
 
         BandDetailsDialog bandDetailsDialog = bandDetailsEditDialogNewInstance(bandName);
         bandDetailsDialog.show(getSupportFragmentManager(), BAND_DETAILS_EDIT_DIALOG_TAG);
@@ -203,13 +203,4 @@ public class MainActivity extends AppCompatActivity implements AddBandDialog.Add
         return false;
     }
 
-    public void printBandTable() {
-
-        Cursor cursor = myDb.getAllData();
-        int i = 0;
-        while (cursor.moveToNext()) {
-            System.out.println("ID z bazy: "+cursor.getString(0) + " ID z tabeli: "+bandsIdsList.get(i)+" Nazwa: "+cursor.getString(1));
-            i++;
-        }
-    }
 }

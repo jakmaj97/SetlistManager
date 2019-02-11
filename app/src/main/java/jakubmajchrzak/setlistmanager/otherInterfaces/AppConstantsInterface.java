@@ -8,4 +8,6 @@ public interface AppConstantsInterface {
 
     String POSITION_BUNDLE_ID = "position";
     String BAND_NAME_BUNDLE_ID = "name";
+    int BAND_ID_COLUMN_INDEX = 0;
+    int BAND_NAME_COLUMN_INDEX = 1;
 }
